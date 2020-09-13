@@ -1,9 +1,11 @@
 var express = require("express");
 var router = new express.Router();
+const ctrlUsers = require("../controllers/users");
 
-/* GET users listing. */
-router.get("/", function(req, res, next) {
-  res.send("respond with a user resource");
-});
+/* Endpoint Register*/
+router.post("/register", ctrlUsers.register);
+
+/* Endpoint Login */
+router.post("/login", ctrlUsers.login);
 
 module.exports = router;
