@@ -11,10 +11,15 @@ const userSchema = new mongoose.Schema(
       min: 5,
       unique: true,
     },
-    name: {
+    firstName: {
       type: String,
       required: true,
-      min: 5,
+      min: 2,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      min: 2,
     },
     role: {
       type: String,

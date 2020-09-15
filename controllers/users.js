@@ -6,7 +6,8 @@ const User = mongoose.model("User");
 
 const register = (req, res) => {
   if (
-    !req.body.name ||
+    !req.body.firstName ||
+    !req.body.lastName ||
     !req.body.email ||
     !req.body.role ||
     !req.body.password
@@ -14,7 +15,8 @@ const register = (req, res) => {
     return res.status(400).json({ message: "All fields are required." });
   }
   const user = new User();
-  user.name = req.body.name;
+  user.firstName = req.body.firstName;
+  user.lastName = req.body.lastName;
   user.email = req.body.email;
   user.role = req.body.role;
   user.setPassword(req.body.password);

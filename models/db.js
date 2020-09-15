@@ -1,13 +1,11 @@
 const mongoose = require("mongoose");
-const readLine = require("readline");
-dotenv = require("dotenv");
+const dotenv = require("dotenv");
 
 dotenv.config();
 
 let dbURL = "mongodb://localhost/AfriteachDB";
 if (process.env.NODE_ENV === "production") {
   dbURL = process.env.MONGODB_URL;
-  console.log("DB URL : ", dbURL);
 }
 
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -17,11 +15,11 @@ mongoose.connection.on("connected", () => {
 });
 
 mongoose.connection.on("error", (err) => {
-  console.log(`Mongoose connection error: `, err);
+  console.log("Mongoose connection error: ", err);
 });
 
 mongoose.connection.on("disconnected", () => {
-  console.log(`Mongoose disconnected`);
+  console.log("Mongoose disconnected");
 });
 const gracefulShutdown = (msg, callback) => {
   mongoose.connection.close(() => {
@@ -29,7 +27,6 @@ const gracefulShutdown = (msg, callback) => {
     callback();
   });
 };
-
 // from nodemon restarts
 process.once("SIGUSR2", () => {
   gracefulShutdown("nodemon restart", () => {
