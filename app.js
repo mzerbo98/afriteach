@@ -24,4 +24,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/courses", coursesRouter);
 
+const port = 7000;
+app.listen(port, () => console.log(`Server running on port: ${port}`))
+
 module.exports = app;
