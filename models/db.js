@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+
 let dbURL = "mongodb://localhost/AfriteachDB";
 //if (process.env.NODE_ENV === "production") {
   dbURL = process.env.MONGODB_URL;
