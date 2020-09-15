@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 require("../models/users");
 const User = mongoose.model("User");
 
-const register = (req, res) => {
+const register = async (req, res) => {
   if (
     !req.body.firstName ||
     !req.body.lastName ||
@@ -14,6 +14,15 @@ const register = (req, res) => {
   ) {
     return res.status(400).json({ message: "All fields are required." });
   }
+
+  // Chech if the user (email) is already in the database
+  const emailExists = await User.findOne({email: req.body.email}) 
+
+  if (emailExists) {
+    return res.status(400).json({ message: 'Email already in the Database!'})
+  }
+
+  // Save the user in the database
   const user = new User();
   user.firstName = req.body.firstName;
   user.lastName = req.body.lastName;
