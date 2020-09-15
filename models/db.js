@@ -23,7 +23,7 @@ mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true });
 // });
 const gracefulShutdown = (msg, callback) => {
   mongoose.connection.close(() => {
-    console.log(`Mongoose disconnected through ${msg}`);
+    // console.log(`Mongoose disconnected through ${msg}`);
     callback();
   });
 };
