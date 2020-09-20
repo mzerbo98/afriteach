@@ -6,8 +6,7 @@ const User = mongoose.model("User");
 
 const register = async (req, res) => {
   if (
-    !req.body.firstName ||
-    !req.body.lastName ||
+    !req.body.name ||
     !req.body.email ||
     !req.body.role ||
     !req.body.password
@@ -24,8 +23,7 @@ const register = async (req, res) => {
 
   // Save the user in the database
   const user = new User();
-  user.firstName = req.body.firstName;
-  user.lastName = req.body.lastName;
+  user.name = req.body.name;
   user.email = req.body.email;
   user.role = req.body.role;
   user.setPassword(req.body.password);
