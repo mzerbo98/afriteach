@@ -25,6 +25,6 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/courses", coursesRouter);
 
-let server = app.listen(3000, () => console.log('Listening on port: ', server.address().port))
+//let server = app.listen(3000, () => console.log('Listening on port: ', server.address().port))
 
 module.exports = app;
