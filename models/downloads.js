@@ -8,11 +8,11 @@ const downloadSchema = new mongoose.Schema(
         },
         downloader: {
             type: mongoose.Types.ObjectId,
-            ref: 'User'
+            ref: "User"
         },
         course: {
             type: mongoose.Types.ObjectId,
-            ref: 'Course'
+            ref: "Course"
         },
         ip_address: {
             type: String,
@@ -21,4 +21,4 @@ const downloadSchema = new mongoose.Schema(
     }
 );
 
-mongoose.model('Download', downloadSchema);
+mongoose.model("Download", downloadSchema);

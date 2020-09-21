@@ -39,10 +39,10 @@ const courseSchema = new mongoose.Schema(
         },
         owner: {
             type: mongoose.Types.ObjectId,
-            ref: 'User'
+            ref: "User"
         }
     },
     { timestamps: true }
 );
 
-mongoose.model('Course', courseSchema);
+mongoose.model("Course", courseSchema);

@@ -8,11 +8,11 @@ const viewSchema = new mongoose.Schema(
         },
         viewer: {
             type: mongoose.Types.ObjectId,
-            ref: 'User'
+            ref: "User"
         },
         course: {
             type: mongoose.Types.ObjectId,
-            ref: 'Course'
+            ref: "Course"
         },
         ip_address: {
             type: String,
@@ -21,4 +21,4 @@ const viewSchema = new mongoose.Schema(
     }
 );
 
-mongoose.model('View', viewSchema);
+mongoose.model("View", viewSchema);
