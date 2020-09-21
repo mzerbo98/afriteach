@@ -59,3 +59,5 @@ typings/
 
 # next.js build output
 .next
+files/courses/videos/1.mp4
+files/courses/videos/2.mp4
