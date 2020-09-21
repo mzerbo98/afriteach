@@ -22,7 +22,6 @@ const courseSchema = new mongoose.Schema(
         },
         description: {
             type: String,
-            trim: true,
         },
         language: {
             type: String,
@@ -33,6 +32,17 @@ const courseSchema = new mongoose.Schema(
             type: String,
             trim: true,
         },
+        videoUrl: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        owner: {
+            type: mongoose.Types.ObjectId,
+            ref: 'User'
+        }
     },
     { timestamps: true }
 );
+
+mongoose.model('Course', courseSchema);

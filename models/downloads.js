@@ -1,18 +1,18 @@
 const mongoose = require("mongoose");
 
-const viewSchema = new mongoose.Schema(
+const downloadSchema = new mongoose.Schema(
     {
         date: {
             type: Date,
-            required: true,
             default: Date.now
         },
-        userId: {
-            type: String,
+        downloader: {
+            type: mongoose.Types.ObjectId,
+            ref: 'User'
         },
-        videoId: {
-            type: String,
-            required: true,
+        course: {
+            type: mongoose.Types.ObjectId,
+            ref: 'Course'
         },
         ip_address: {
             type: String,
@@ -20,3 +20,5 @@ const viewSchema = new mongoose.Schema(
         }
     }
 );
+
+mongoose.model('Download', downloadSchema);
