@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === "production") {
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
 mongoose.connection.on("connected", () => {
-  console.log(`Mongoose connected to ${dbURL}`);
+  //console.log(`Mongoose connected to ${dbURL}`);
 });
 
 const gracefulShutdown = (msg, callback) => {

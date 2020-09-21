@@ -15,10 +15,10 @@ const register = async (req, res) => {
   }
 
   // Chech if the user (email) is already in the database
-  const emailExists = await User.findOne({email: req.body.email}) 
+  const emailExists = await User.findOne({email: req.body.email}); 
 
   if (emailExists) {
-    return res.status(400).json({ message: 'Email already in the Database!'})
+    return res.status(400).json({ message: "Email already in the Database!"});
   }
 
   // Save the user in the database
