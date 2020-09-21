@@ -8,6 +8,7 @@ var usersRouter = require("./routes/users");
 var coursesRouter = require("./routes/courses");
 const dotenv = require("dotenv");
 
+
 require("./models/db");
 require("./config/passport");
 
