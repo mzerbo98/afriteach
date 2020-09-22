@@ -45,7 +45,9 @@ const stream = (req, res) => {
             view.save();
         
             const path =  course.videoUrl;
-            const stat = fs.statSync('./' + path);
+            /*eslint-disable */
+            const stat = fs.statSync("./" + path);
+            /*eslint-enable */
             const fileSize = stat.size;
             const range = req.headers.range;
         
@@ -57,7 +59,9 @@ const stream = (req, res) => {
                 : fileSize-1;
         
                 const chunksize = (end-start)+1;
-                const file = fs.createReadStream('./' + path, {start, end});
+                /*eslint-disable */
+                const file = fs.createReadStream("./" + path, {start, end});
+                /*eslint-enable */
                 const head = {
                     "Content-Range": `bytes ${start}-${end}/${fileSize}`,
                     "Accept-Ranges": "bytes",
@@ -73,7 +77,9 @@ const stream = (req, res) => {
                     "Content-Type": "video/mp4",
                 };
                 res.writeHead(200, head);
-                fs.createReadStream('./' + path).pipe(res);
+                /*eslint-disable */
+                fs.createReadStream("./" + path).pipe(res);
+                /*eslint-enable */
             }
         }
     });
@@ -138,8 +144,8 @@ const publish = (req, res) => {
 
 const download = (req, res) => {
     const id = req.params.id;
-    const path = paths.join('./' + path);
-    res.download('./' + path);
+    const path = paths.join("./" + path);
+    res.download("./" + path);
 };
 
 module.exports = {
