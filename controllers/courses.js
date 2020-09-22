@@ -44,8 +44,8 @@ const stream = (req, res) => {
             view.ipAddress = ip;
             view.save();
         
-            const path = paths.join(process.cwd() + course.videoUrl);
-            const stat = fs.statSync(new String(path));
+            const path =  course.videoUrl;
+            const stat = fs.statSync('./' + path);
             const fileSize = stat.size;
             const range = req.headers.range;
         
@@ -57,7 +57,7 @@ const stream = (req, res) => {
                 : fileSize-1;
         
                 const chunksize = (end-start)+1;
-                const file = fs.createReadStream(new String(path), {start, end});
+                const file = fs.createReadStream('./' + path, {start, end});
                 const head = {
                     "Content-Range": `bytes ${start}-${end}/${fileSize}`,
                     "Accept-Ranges": "bytes",
@@ -73,11 +73,11 @@ const stream = (req, res) => {
                     "Content-Type": "video/mp4",
                 };
                 res.writeHead(200, head);
-                fs.createReadStream(new String(path)).pipe(res);
+                fs.createReadStream('./' + path).pipe(res);
             }
         }
     });
-}
+};
 
 const publish = (req, res) => {
     const token = req.query.token;
@@ -134,13 +134,13 @@ const publish = (req, res) => {
     } else {
         res.status(403).send("Auth token required");
     }
-}
+};
 
 const download = (req, res) => {
     const id = req.params.id;
-    const path = paths.join(__dirname + "/../files/courses/videos/" + id + ".mp4");
-    res.download(path);
-}
+    const path = paths.join('./' + path);
+    res.download('./' + path);
+};
 
 module.exports = {
     stream,
