@@ -14,7 +14,7 @@ const viewSchema = new mongoose.Schema(
             type: mongoose.Types.ObjectId,
             ref: "Course"
         },
-        ip_address: {
+        ipAddress: {
             type: String,
             trim: true,
         }
