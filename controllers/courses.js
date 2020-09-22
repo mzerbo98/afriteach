@@ -144,7 +144,7 @@ const publish = (req, res) => {
 
 const download = (req, res) => {
     const id = req.params.id;
-    const path = paths.join("./" + path);
+    const path = paths.join("./files/videos/1.mp4");
     res.download("./" + path);
 };
 
@@ -152,4 +152,4 @@ module.exports = {
     stream,
     download,
     publish
-}
+};
