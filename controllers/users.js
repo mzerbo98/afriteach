@@ -20,7 +20,6 @@ const register = async (req, res) => {
   if (emailExists) {
     return res.status(400).json({ message: "Email already in the Database!"});
   }
-
   // Save the user in the database
   const user = new User();
   user.name = req.body.name;
