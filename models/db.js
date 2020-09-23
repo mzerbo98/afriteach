@@ -4,10 +4,8 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 
-let dbURL = "mongodb://localhost/AfriteachDB";
-if (process.env.NODE_ENV === "production") {
-  dbURL = process.env.MONGODB_URL;
-}
+const dbURL  = process.env.MONGODB_URL;
+
 
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
