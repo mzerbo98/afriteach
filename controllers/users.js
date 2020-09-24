@@ -35,7 +35,7 @@ const register = async (req, res) => {
       res.status(400).json(err);
     } else {
       const userToken = user.generateJWT();
-      res.status(200).json({"id": user._id, "role": user.role ,"token":userToken});
+      res.status(200).json({"id": user._id ,"token":userToken});
     }
   });
 };
@@ -50,8 +50,8 @@ const login = (req, res) => {
       return res.status(400).json(err);
     }
     if (user) {
-      token = user.generateJWT();
-      res.status(200).json(token);
+      userToken = user.generateJWT();
+      res.status(200).json({"id": user._id, "role": user.role ,"token":userToken});
     } else {
       res.status(401).json(info);
     }
