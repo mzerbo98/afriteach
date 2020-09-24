@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 
-const dbURL  = process.env.MONGODB_UR || 'mongodb://afriDev:sdgCohort2@ds127655.mlab.com:27655/afriteachdb';
+const dbURL  = process.env.MONGODB_UR || "mongodb://afriDev:sdgCohort2@ds127655.mlab.com:27655/afriteachdb";
 
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
