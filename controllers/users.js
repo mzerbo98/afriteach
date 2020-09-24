@@ -30,8 +30,8 @@ const register = async (req, res) => {
     if (err) {
       res.status(400).json(err);
     } else {
-      const token = user.generateJWT();
-      res.status(200).json({"id": user._id, "token":token});
+      const userToken = user.generateJWT();
+      res.status(200).json({"id": user._id, "token":userToken});
     }
   });
 };
