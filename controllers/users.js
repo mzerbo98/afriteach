@@ -20,6 +20,10 @@ const register = async (req, res) => {
   if (emailExists) {
     return res.status(400).json({ message: "Email already in the Database!"});
   }
+  let role = req.body.role;
+  if (role.toString().trim() != "student" && role.toString().trim() != "teacher") {
+    return res.status(400).json({ message: "Role must be student or teacher."});
+  }
   // Save the user in the database
   const user = new User();
   user.name = req.body.name;
