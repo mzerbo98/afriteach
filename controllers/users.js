@@ -21,7 +21,7 @@ const register = async (req, res) => {
     return res.status(400).json({ message: "Email already in the Database!"});
   }
   let role = req.body.role;
-  if (role.toString().trim() != "student" && role.toString().trim() != "teacher") {
+  if (role.toString().trim() !== "student" && role.toString().trim() !== "teacher") {
     return res.status(400).json({ message: "Role must be student or teacher."});
   }
   // Save the user in the database
@@ -50,7 +50,7 @@ const login = (req, res) => {
       return res.status(400).json(err);
     }
     if (user) {
-      userToken = user.generateJWT();
+      const userToken = user.generateJWT();
       res.status(200).json({"id": user._id, "role": user.role ,"token":userToken});
     } else {
       res.status(401).json(info);
