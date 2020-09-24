@@ -35,7 +35,7 @@ const register = async (req, res) => {
       res.status(400).json(err);
     } else {
       const userToken = user.generateJWT();
-      res.status(200).json({"id": user._id, "token":userToken});
+      res.status(200).json({"id": user._id, "role": user.role ,"token":userToken});
     }
   });
 };
