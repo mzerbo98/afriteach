@@ -59,7 +59,7 @@ typings/
 
 # next.js build output
 .next
-
-# DS_STORE files output
-.DS_STORE
-
+files/courses/videos/1.mp4
+files/courses/videos/2.mp4
+files/courses/videos/8e66e0c0-029d-11eb-bf85-a7d3e0b44e01.mp4
+files/courses/img/8e66e0c0-029d-11eb-bf85-a7d3e0b44e01-thumbnail-320x240-0001.png
