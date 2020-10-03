@@ -32,7 +32,7 @@ const upload = (req, res) => {
             } else {
                 if (user.role.toUpperCase() === TEACHER_ROLE) {
                     userId = user._id;
-                    if (!req.files || Object.keys(req.files).length === 0) {
+                    if (!req.files || Object.keys(req.files).length === 0 || !req.files.video) {
                         return res.status(400).json({
                             message: "No files were uploaded."
                         });
