@@ -51,7 +51,7 @@ userSchema.methods.generateJWT = function () {
       role: this.role,
       exp: parseInt(expiry.getTime() / 1000, 10),
     },
-    process.env.JWT_TOKEN
+    process.env.JWT_TOKEN || "secret"
   );
 };
 

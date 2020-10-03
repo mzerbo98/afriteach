@@ -4,6 +4,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const fileUpload = require("express-fileupload");
 
+var cors = require("cors");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var coursesRouter = require("./routes/courses");
@@ -16,6 +17,8 @@ require("./config/passport");
 var app = express();
 dotenv.config();
 
+app.use(cors());
+app.options("*", cors());
 app.use(logger("dev"));
 app.use(fileUpload());
 app.use(express.json());
@@ -26,7 +29,5 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/courses", coursesRouter);
-
-//let server = app.listen(3000, () => console.log("Listening on port: ", server.address().port))
 
 module.exports = app;
