@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "apt install ffmpeg & node ./bin/www << y"
   },
   "engines": {
     "node": ">=13.7.0",
